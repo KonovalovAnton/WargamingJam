@@ -9,10 +9,10 @@ public class CaptureOthers : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(pv.isMine)
+        if(pv.isMine && !me.IsSad())
         {
             PlayerTeam p = collision.gameObject.GetComponent<PlayerTeam>();
-            if (!me.IsSad() && p != null && p.IsSad())
+            if (p != null && p.IsSad())
             {
                 p.ChangeMoodRPC(false);
             }
