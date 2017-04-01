@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50892076135855450}
   - component: {fileID: 114011645607878910}
   - component: {fileID: 114069186544870440}
+  - component: {fileID: 114295804237084590}
   m_Layer: 0
   m_Name: Plater
   m_TagString: Untagged
@@ -309,6 +310,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114295804237084590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059148737656660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e821e938bfbc8a4e863ce7f072fd922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 212837687319078072}
+  pv: {fileID: 114011645607878910}
 --- !u!114 &114303162993718968
 MonoBehaviour:
   m_ObjectHideFlags: 1
