@@ -7,6 +7,7 @@ public class GrenadeSpawner : MonoBehaviour {
     public GameObject grenade;
     public float cooldown;
     public PlayerTeam playerTeam;
+    public PhotonView pv;
     private float lastGrenadeTime;
 
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class GrenadeSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space) && playerTeam.IsSad() && Time.time - lastGrenadeTime > cooldown)
+		if(pv.isMine && Input.GetKeyDown(KeyCode.Space) && playerTeam.IsSad() && Time.time - lastGrenadeTime > cooldown)
         {
             lastGrenadeTime = Time.time;
             PhotonNetwork.Instantiate(grenade.name, transform.position, Quaternion.identity, 0);

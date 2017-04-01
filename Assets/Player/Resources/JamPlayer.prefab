@@ -337,6 +337,7 @@ MonoBehaviour:
   grenade: {fileID: 1035229848909168, guid: 81d5f62439392db418a960c699c82aa5, type: 2}
   cooldown: 10
   playerTeam: {fileID: 114734638743961564}
+  pv: {fileID: 114423906288517124}
 --- !u!114 &114850951745707794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
