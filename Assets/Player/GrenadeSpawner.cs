@@ -20,8 +20,7 @@ public class GrenadeSpawner : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space) && playerTeam.IsSad() && Time.time - lastGrenadeTime > cooldown)
         {
             lastGrenadeTime = Time.time;
-            //PhotonNetwork.Instantiate(grenade.name, transform.position, Quaternion.identity, 0);
-            Instantiate(grenade);
+            PhotonNetwork.Instantiate(grenade.name, transform.position, Quaternion.identity, 0);
         }
 	}
 }

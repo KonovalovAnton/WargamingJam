@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenade: {fileID: 1035229848909168, guid: 81d5f62439392db418a960c699c82aa5, type: 2}
-  cooldown: 15
+  cooldown: 10
   playerTeam: {fileID: 114734638743961564}
 --- !u!114 &114850951745707794
 MonoBehaviour:
