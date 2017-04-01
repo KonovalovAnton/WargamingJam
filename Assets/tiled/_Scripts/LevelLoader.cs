@@ -157,9 +157,13 @@ public class LevelLoader : MonoBehaviour
         // Instantiate a new tile
         GameObject newTile = new GameObject();
         newTile.name = "Tile";
-        newTile.AddComponent<BoxCollider2D>();
-        // Set the size of the boxcollider to the correct unity-unit tilesize.
-        newTile.GetComponent<BoxCollider2D>().size = TileUnitySize;
+        if (gameObject.name == "walls")
+        {
+            newTile.AddComponent<BoxCollider2D>();
+
+            // Set the size of the boxcollider to the correct unity-unit tilesize.
+            newTile.GetComponent<BoxCollider2D>().size = TileUnitySize;
+        }
         newTile.transform.position = new Vector2(xIndex * TileUnitySize.x, yIndex * TileUnitySize.y);
 
         // Put the new tile under our _tiles folder.
