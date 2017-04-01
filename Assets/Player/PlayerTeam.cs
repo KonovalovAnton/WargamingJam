@@ -10,22 +10,37 @@ public class PlayerTeam : MonoBehaviour {
 
     public SpriteRenderer body;
     public PhotonView pv;
+    public CaptureOthers capture;
 
     private void Start()
     {
         if(pv.isMine)
         {
-            bool sad = true;
+            bool sad = false;
             if (PhotonNetwork.playerList.Length > 1)
             {
-                sad = false;
+                sad = true;
             }
-            pv.RPC("ChangeMood", PhotonTargets.AllBufferedViaServer, sad);
+            ChangeMoodRPC(sad);
+            if (sad)
+            {
+                capture.enabled = true;
+            }
         }
     }
 
+    public bool IsSad()
+    {
+        return isSad;
+    }
+
+    public void ChangeMoodRPC(bool flag)
+    {
+        pv.RPC("ChangeMood", PhotonTargets.AllBufferedViaServer, flag);
+    }
+
     [PunRPC]
-    public void ChangeMood(bool isSad)
+    void ChangeMood(bool isSad)
     {
         this.isSad = isSad;
         body.color = isSad ? sad : happy;
