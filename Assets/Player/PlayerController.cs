@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void Slowdown(float multiplier)
+    {
+        movementSpeed /= multiplier;
+    }
+
 
     public void EndRocketJump()
     {

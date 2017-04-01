@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 58130491079199142}
   - component: {fileID: 114490139445840356}
   - component: {fileID: 114597115270015866}
+  - component: {fileID: 114822286171678394}
   m_Layer: 0
   m_Name: JamPlayer
   m_TagString: Untagged
@@ -322,6 +323,20 @@ MonoBehaviour:
   body: {fileID: 212036854412416482}
   pv: {fileID: 114423906288517124}
   capture: {fileID: 114490139445840356}
+--- !u!114 &114822286171678394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754856700738226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61ee419d665f56428f7a0bb311a7614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenade: {fileID: 1035229848909168, guid: 81d5f62439392db418a960c699c82aa5, type: 2}
+  cooldown: 15
+  playerTeam: {fileID: 114734638743961564}
 --- !u!114 &114850951745707794
 MonoBehaviour:
   m_ObjectHideFlags: 1
