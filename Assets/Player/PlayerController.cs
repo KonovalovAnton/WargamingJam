@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour {
     public PhotonView pv;
     public Camera cam;
 
+    public int cacheX;
+    public int cacheY;
+
+    bool blockMovement;
+    bool rocket;
+
 	void Start () {
 		if(pv.isMine)
         {
@@ -19,7 +25,15 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (pv.isMine)
         {
-            MoveProcedure();
+            if (!blockMovement)
+            {
+                MoveProcedure();
+            }
+
+            if(rocket)
+            {
+                RocketJump();
+            }
         }		
 	}
 
@@ -38,10 +52,44 @@ public class PlayerController : MonoBehaviour {
         {
             physics.AddForce(new Vector2(x, y).normalized * Time.deltaTime * movementSpeed,ForceMode2D.Impulse);
         }
-        else
+        /*else
         {
             physics.velocity = physics.velocity * 0.7f;
-        }
+        }*/
+        cacheX = x;
+        cacheY = y;
+    }
 
+    public bool StartRocketJump()
+    {
+        if (cacheX == 0 && cacheY == 0)
+        {
+            Debug.Log("JUMP Fail!");
+            return false;
+        }
+        else
+        {
+            Debug.Log("JUMP SUCCESS!");
+            rocket = true;
+            blockMovement = true;
+            return true;
+        }
+    }
+
+
+    public void EndRocketJump()
+    {
+        rocket = false;
+        blockMovement = false;
+    }
+
+    void RocketJump()
+    {                
+        physics.AddForce(new Vector2(cacheX, cacheY).normalized * Time.deltaTime * 1000, ForceMode2D.Impulse);
+        Debug.Log("VZUH = " + physics.velocity.magnitude);
+        if(physics.velocity.magnitude > 100)
+        {
+            physics.velocity = physics.velocity.normalized * 50;
+        }
     }
 }

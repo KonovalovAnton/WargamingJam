@@ -22,10 +22,6 @@ public class PlayerTeam : MonoBehaviour {
                 sad = true;
             }
             ChangeMoodRPC(sad);
-            if (sad)
-            {
-                capture.enabled = true;
-            }
         }
     }
 
