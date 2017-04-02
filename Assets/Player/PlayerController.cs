@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour {
     public void Slowdown(float multiplier)
     {
         movementSpeed /= multiplier;
+        Debug.Log("new speed: " + movementSpeed);
     }
 
 
