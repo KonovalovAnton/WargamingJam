@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerTeam : MonoBehaviour {
 
     bool isSad;
-    Color sad = Color.red;
-    Color happy = Color.green;
+    public Material sad;
+    public Material happy;
 
-    public SpriteRenderer body;
+    public MeshRenderer body;
     public PhotonView pv;
     public CaptureOthers capture;
 
@@ -39,7 +39,7 @@ public class PlayerTeam : MonoBehaviour {
     void ChangeMood(bool isSad)
     {
         this.isSad = isSad;
-        body.color = isSad ? sad : happy;
+        body.material = isSad ? sad : happy;
     }
 
 }
