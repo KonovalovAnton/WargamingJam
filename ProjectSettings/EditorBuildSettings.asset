@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/AntonTest.unity
   - enabled: 1
     path: Assets/LevelScene.unity
+  - enabled: 1
+    path: Assets/Menu.unity
