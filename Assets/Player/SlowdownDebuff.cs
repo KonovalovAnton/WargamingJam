@@ -43,13 +43,18 @@ public class SlowdownDebuff : MonoBehaviour {
             lifeTime += Time.deltaTime;
             if(lifeTime > maxLifeTime)
             {
-                foreach(PlayerController playerController in slowedPlayers.Values)
-                {
-                    playerController.Slowdown(1.0f / slowdownMultiplier);
-                }
-                PhotonNetwork.Destroy(photonViewRef);
-                
+                photonViewRef.RPC("ClearDebuf", PhotonTargets.AllViaServer);
+                PhotonNetwork.Destroy(photonViewRef);                
             }
+        }
+    }
+
+    [PunRPC]
+    void ClearDebuf()
+    {
+        foreach (PlayerController playerController in slowedPlayers.Values)
+        {
+            playerController.Slowdown(1.0f / slowdownMultiplier);
         }
     }
 
