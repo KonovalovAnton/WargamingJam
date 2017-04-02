@@ -7,7 +7,10 @@ public class BlindnessController : MonoBehaviour {
     static BlindnessController instance;
 
     public BlindnessActivator blindnessActivator;
+
     public PhotonView photonView;
+
+    public bool blindnessActivated = false;
 
     public static BlindnessController Instance
     {
@@ -33,24 +36,49 @@ public class BlindnessController : MonoBehaviour {
 		
 	}
 
-    public bool activateBlindness()
+    public bool ActivateBlindness()
     {
         if(!blindnessActivated)
         {
-            photonView.RPC("blindnessCallback", PhotonTargets.AllViaServer);
+            photonView.RPC("BlindnessCallback", PhotonTargets.AllViaServer);
+            return true;
+        }
+        return false;
+    }
+
+    public bool DeactivateBlindness()
+    {
+        if (blindnessActivated)
+        {
+            photonView.RPC("BlindnessEndCallback", PhotonTargets.AllViaServer);
             return true;
         }
         return false;
     }
 
     [PunRPC]
-    public void blindnessCallback()
+    public void BlindnessEndCallback()
+    {
+        blindnessActivated = false;
+        if (!playerTeam.IsSad())
+        {
+            //todo: disable effect
+            blindnessActivator.DeactivateBlindness();
+        }
+        else
+        {
+            //todo: disable icons
+        }
+    }
+
+    [PunRPC]
+    public void BlindnessCallback()
     {
         blindnessActivated = true;
         if(!playerTeam.IsSad())
         {
             //todo: enable effect
-            blindnessActivator.activateBlindness();
+            blindnessActivator.ActivateBlindness();
         }
         else
         {
@@ -58,5 +86,4 @@ public class BlindnessController : MonoBehaviour {
         }
     }
 
-    bool blindnessActivated = false;
 }

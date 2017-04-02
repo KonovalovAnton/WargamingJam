@@ -45,6 +45,6 @@ MonoBehaviour:
   - TaggedPlayer
   - ChangeMood
   - ClearDebuf
-  - blindnessCallback
-
+  - BlindnessCallback
+  - BlindnessEndCallback
   DisableAutoOpenWizard: 1
