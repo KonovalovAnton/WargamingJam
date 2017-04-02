@@ -44,4 +44,6 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - ChangeMood
+  - ClearDebuf
+  - blindnessCallback
   DisableAutoOpenWizard: 1

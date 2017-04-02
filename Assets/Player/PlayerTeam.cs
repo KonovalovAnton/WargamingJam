@@ -16,6 +16,7 @@ public class PlayerTeam : MonoBehaviour {
     {
         if(pv.isMine)
         {
+            BlindnessController.Instance.playerTeam = this;
             bool sad = false;
             if (PhotonNetwork.playerList.Length > 1)
             {
